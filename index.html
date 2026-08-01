@@ -151,6 +151,13 @@
   .disc .row .n{font-family:var(--lat);font-size:12px;color:var(--ink-2);letter-spacing:.1em;width:34px;flex:none;}
   .disc .row .t{font-family:var(--jp);font-weight:500;font-size:clamp(16px,2vw,20px);flex:1;}
   .disc .row .en{font-family:var(--lat);font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--ink-2);}
+  .about-portrait{margin-top:clamp(30px,4vw,48px);aspect-ratio:4/5;overflow:hidden;border-radius:3px;background:#e7e5dd;}
+  .about-portrait img{width:100%;height:100%;object-fit:cover;object-position:50% 16%;transition:transform 1.2s var(--ease);}
+  .about-portrait:hover img{transform:scale(1.04);}
+  .about-media{margin-top:clamp(56px,9vh,110px);aspect-ratio:3/2;overflow:hidden;border-radius:3px;background:#e7e5dd;}
+  .about-media img{width:100%;height:100%;object-fit:cover;object-position:center;transition:transform 1.4s var(--ease);}
+  .about-media:hover img{transform:scale(1.03);}
+  .about-cap{margin-top:14px;font-family:var(--lat);font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--ink-2);}
 
   /* ---------- Contact ---------- */
   .contact{background:var(--ink);color:var(--paper);padding:clamp(80px,15vh,180px) 0 0;}
@@ -392,6 +399,7 @@
     <div class="about-grid">
       <div>
         <p class="lead rv">Design with quiet<br>intention. <span class="jpl">静けさの<br>あるデザインを。</span></p>
+        <figure class="about-portrait rv d1"><img src="assets/about-portrait.webp" alt="杉本桜子 ポートレート" loading="lazy"></figure>
       </div>
       <div class="body">
         <p class="rv d1">杉本桜子は、東京を拠点に活動する<b>グラフィックデザイナー / アートディレクター</b>です。ブランドアイデンティティ、エディトリアル、パッケージを軸に、コンセプトの設計から仕上げまでを一貫して手がけます。</p>
@@ -406,6 +414,8 @@
         </div>
       </div>
     </div>
+    <figure class="about-media rv"><img src="assets/about-studio.webp" alt="スタジオでの制作風景 — 印刷物とテクスチャの試作" loading="lazy"></figure>
+    <div class="about-cap">Studio — Tokyo</div>
   </div>
 </section>
 
