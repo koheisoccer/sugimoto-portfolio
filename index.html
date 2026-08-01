@@ -97,6 +97,8 @@
   .work{position:relative;width:100%;min-height:100vh;min-height:100svh;display:flex;align-items:flex-end;overflow:hidden;}
   .work .media{position:absolute;inset:0;background-size:300% 300%;animation:flow 16s var(--ease) infinite;transform:scale(1.06);transition:transform 1.2s var(--ease);}
   .work.in .media{transform:scale(1);}
+  .work .media.photo{animation:none;background:#0e0e0e;}
+  .work .media img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center;}
   .work .media::after{content:"";position:absolute;inset:0;background:linear-gradient(to top,rgba(10,9,9,.82) 0%,rgba(10,9,9,.28) 42%,rgba(10,9,9,.12) 100%);}
   .work .inner{position:relative;z-index:2;width:100%;color:#f4f3ee;padding-bottom:clamp(54px,9vh,110px);}
   .work .inner .wrap{display:grid;grid-template-columns:auto 1fr auto;align-items:end;gap:clamp(18px,4vw,60px);}
@@ -292,13 +294,13 @@
     <a class="go" href="#">View project <svg viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
   </div></div></section>
 
-  <section class="work"><div class="media g3"></div><div class="inner"><div class="wrap">
+  <section class="work"><div class="media photo"><img src="assets/work-03-nightbloom.webp" alt="LUNARIA / Nightbloom — アートディレクション" loading="lazy"></div><div class="inner"><div class="wrap">
     <div class="no">03</div>
     <div class="mid"><div class="cat">Art Direction <span class="yr">2024</span></div><h3>LUNARIA / Nightbloom</h3></div>
     <a class="go" href="#">View project <svg viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
   </div></div></section>
 
-  <section class="work"><div class="media g4"></div><div class="inner"><div class="wrap">
+  <section class="work"><div class="media photo"><img src="assets/work-04-echoes.webp" alt="巡 -MEGURU- 展 ポスター" loading="lazy"></div><div class="inner"><div class="wrap">
     <div class="no">04</div>
     <div class="mid"><div class="cat">Poster Series <span class="yr">2024</span></div><h3>巡 -MEGURU- 展</h3></div>
     <a class="go" href="#">View project <svg viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
@@ -310,7 +312,7 @@
     <a class="go" href="#">View project <svg viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
   </div></div></section>
 
-  <section class="work"><div class="media g6"></div><div class="inner"><div class="wrap">
+  <section class="work"><div class="media photo"><img src="assets/work-06-bloom.webp" alt="花枝茶 -hanae- 茶葉パッケージ" loading="lazy"></div><div class="inner"><div class="wrap">
     <div class="no">06</div>
     <div class="mid"><div class="cat">Package Design <span class="yr">2023</span></div><h3>花枝茶 -hanae- 茶葉パッケージ</h3></div>
     <a class="go" href="#">View project <svg viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
