@@ -1,0 +1,504 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>SAKURAKO SUGIMOTO — 杉本桜子 | Designer / Art Director</title>
+<meta name="description" content="杉本桜子 (Sakurako Sugimoto) — グラフィックデザイナー / アートディレクター。ブランディング、エディトリアル、パッケージ、アートディレクションを手がけるポートフォリオ。">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Zen+Kaku+Gothic+New:wght@300;400;500;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --paper:#f4f3ee;         /* warm editorial paper */
+    --ink:#111010;           /* near-black ink */
+    --ink-2:#6b6a64;         /* muted */
+    --line:#d9d7cf;          /* hairline */
+    --accent:#c6462b;        /* restrained vermilion, used sparingly */
+    --nav-h:76px;
+    --lat:"Space Grotesk",sans-serif;
+    --jp:"Zen Kaku Gothic New",sans-serif;
+    --font:"Space Grotesk","Zen Kaku Gothic New",sans-serif;
+    --ease:cubic-bezier(.16,1,.3,1);
+  }
+  *{margin:0;padding:0;box-sizing:border-box;}
+  html{scroll-behavior:smooth;-webkit-text-size-adjust:100%;}
+  body{background:var(--paper);color:var(--ink);font-family:var(--font);font-size:16px;line-height:1.7;font-weight:400;-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility;overflow-x:hidden;}
+  a{color:inherit;text-decoration:none;}
+  img{max-width:100%;display:block;}
+  ::selection{background:var(--ink);color:var(--paper);}
+  html.stalker-on,html.stalker-on *{cursor:none !important;}
+
+  .wrap{width:100%;max-width:1360px;margin:0 auto;padding:0 clamp(22px,5vw,72px);}
+  .eyebrow{font-family:var(--lat);font-size:12px;font-weight:500;letter-spacing:.28em;text-transform:uppercase;color:var(--ink-2);}
+  .eyebrow .idx{color:var(--accent);}
+
+  /* ---------- Header ---------- */
+  header{position:fixed;top:0;left:0;right:0;height:var(--nav-h);display:flex;align-items:center;z-index:400;mix-blend-mode:difference;color:#fff;}
+  header .wrap{display:flex;align-items:center;justify-content:space-between;width:100%;}
+  .brand{font-family:var(--lat);font-weight:600;font-size:16px;letter-spacing:.14em;display:flex;align-items:center;gap:10px;}
+  .brand .mark{width:9px;height:9px;border-radius:50%;background:currentColor;}
+  .menu-btn{display:flex;align-items:center;gap:12px;background:none;border:none;color:inherit;font-family:var(--lat);font-size:12px;letter-spacing:.22em;text-transform:uppercase;cursor:pointer;padding:12px 0;min-height:44px;transition:transform .4s var(--ease);}
+  .menu-btn .bars{width:26px;height:12px;position:relative;}
+  .menu-btn .bars span{position:absolute;left:0;right:0;height:1.5px;background:currentColor;transition:transform .45s var(--ease),opacity .3s;}
+  .menu-btn .bars span:nth-child(1){top:2px;}
+  .menu-btn .bars span:nth-child(2){top:9px;}
+  body.menu-open .menu-btn .bars span:nth-child(1){top:6px;transform:rotate(45deg);}
+  body.menu-open .menu-btn .bars span:nth-child(2){top:6px;transform:rotate(-45deg);}
+
+  /* ---------- Overlay menu ---------- */
+  .overlay{position:fixed;inset:0;z-index:350;background:var(--ink);color:var(--paper);
+    display:grid;grid-template-columns:1fr;align-content:center;
+    padding:var(--nav-h) clamp(22px,6vw,90px) 40px;
+    clip-path:inset(0 0 100% 0);transition:clip-path .7s var(--ease);pointer-events:none;overflow-y:auto;}
+  body.menu-open .overlay{clip-path:inset(0 0 0% 0);pointer-events:auto;}
+  .overlay-nav{display:flex;flex-direction:column;gap:clamp(6px,1.4vw,14px);}
+  .overlay-nav a{display:flex;align-items:baseline;gap:20px;padding:6px 0;overflow:hidden;}
+  .overlay-nav a .num{font-family:var(--lat);font-size:13px;color:#7a7873;letter-spacing:.1em;width:34px;flex:none;}
+  .overlay-nav a .lbl{font-family:var(--lat);font-weight:500;font-size:clamp(34px,7vw,74px);line-height:1.02;letter-spacing:-.01em;transition:transform .5s var(--ease),color .3s;}
+  .overlay-nav a .jp{font-family:var(--jp);font-size:13px;color:#8a8882;letter-spacing:.2em;align-self:center;}
+  .overlay-nav a:hover .lbl{transform:translateX(18px);color:#fff;}
+  .overlay-foot{display:flex;flex-wrap:wrap;gap:28px 46px;justify-content:space-between;align-items:flex-end;margin-top:clamp(30px,6vh,70px);border-top:1px solid #2c2b28;padding-top:26px;}
+  .overlay-foot .col span{display:block;font-family:var(--lat);font-size:11px;letter-spacing:.24em;text-transform:uppercase;color:#7a7873;margin-bottom:8px;}
+  .overlay-foot .col a,.overlay-foot .col p{font-size:15px;color:#e9e7e0;}
+  .osoc{display:flex;gap:22px;}
+  .osoc a{font-family:var(--lat);font-size:13px;letter-spacing:.12em;color:#cfcdc6;transition:color .25s;}
+  .osoc a:hover{color:#fff;}
+
+  /* ---------- Hero ---------- */
+  .hero{position:relative;min-height:100vh;min-height:100svh;display:flex;flex-direction:column;justify-content:center;padding:calc(var(--nav-h) + 20px) 0 40px;}
+  .hero .top-row{display:flex;justify-content:space-between;gap:20px;margin-bottom:auto;padding-top:8px;}
+  .hero .avail{display:flex;align-items:center;gap:9px;font-family:var(--lat);font-size:12px;letter-spacing:.14em;color:var(--ink-2);}
+  .hero .avail .dot{width:8px;height:8px;border-radius:50%;background:#3fae6b;box-shadow:0 0 0 0 rgba(63,174,107,.5);animation:pulse 2.4s infinite;}
+  .hero .loc{font-family:var(--lat);font-size:12px;letter-spacing:.16em;color:var(--ink-2);text-align:right;text-transform:uppercase;}
+  .hero-name{margin:clamp(24px,5vh,60px) 0 clamp(18px,3vh,34px);}
+  .hero-name h1{font-family:var(--lat);font-weight:300;font-size:clamp(46px,11.5vw,178px);line-height:.92;letter-spacing:-.02em;}
+  .hero-name h1 .r2{display:block;padding-left:.12em;}
+  .hero-name h1 em{font-style:italic;font-weight:300;}
+  .hero-sub{display:flex;flex-wrap:wrap;justify-content:space-between;gap:24px;align-items:flex-end;border-top:1px solid var(--line);padding-top:24px;}
+  .hero-sub .role{font-family:var(--jp);font-size:clamp(15px,2vw,19px);font-weight:500;letter-spacing:.04em;}
+  .hero-sub .role b{font-family:var(--lat);font-weight:500;}
+  .hero-sub .intro{max-width:44ch;font-size:15px;color:var(--ink-2);line-height:1.75;}
+  .hero .scroll-tag{position:absolute;left:0;bottom:26px;font-family:var(--lat);font-size:11px;letter-spacing:.24em;text-transform:uppercase;color:var(--ink-2);display:flex;align-items:center;gap:10px;}
+  .hero .scroll-tag .ln{width:52px;height:1px;background:var(--ink-2);position:relative;overflow:hidden;}
+  .hero .scroll-tag .ln::after{content:"";position:absolute;inset:0;background:var(--ink);animation:sweep 2.2s var(--ease) infinite;}
+
+  /* reveal helper */
+  .rv{opacity:0;transform:translateY(26px);transition:opacity .9s var(--ease),transform .9s var(--ease);}
+  .rv.in{opacity:1;transform:none;}
+  .rv.d1{transition-delay:.08s;}.rv.d2{transition-delay:.16s;}.rv.d3{transition-delay:.24s;}.rv.d4{transition-delay:.32s;}
+
+  /* ---------- Section header ---------- */
+  .sec-head{display:flex;justify-content:space-between;align-items:baseline;gap:20px;padding:clamp(70px,11vh,140px) 0 40px;border-top:1px solid var(--line);}
+  .sec-head h2{font-family:var(--lat);font-weight:400;font-size:clamp(24px,3.4vw,40px);letter-spacing:-.01em;}
+  .sec-head .count{font-family:var(--lat);font-size:13px;color:var(--ink-2);letter-spacing:.1em;}
+
+  /* ---------- Works (full-bleed, one per screen) ---------- */
+  .work{position:relative;width:100%;min-height:100vh;min-height:100svh;display:flex;align-items:flex-end;overflow:hidden;}
+  .work .media{position:absolute;inset:0;background-size:300% 300%;animation:flow 16s var(--ease) infinite;transform:scale(1.06);transition:transform 1.2s var(--ease);}
+  .work.in .media{transform:scale(1);}
+  .work .media::after{content:"";position:absolute;inset:0;background:linear-gradient(to top,rgba(10,9,9,.82) 0%,rgba(10,9,9,.28) 42%,rgba(10,9,9,.12) 100%);}
+  .work .inner{position:relative;z-index:2;width:100%;color:#f4f3ee;padding-bottom:clamp(54px,9vh,110px);}
+  .work .inner .wrap{display:grid;grid-template-columns:auto 1fr auto;align-items:end;gap:clamp(18px,4vw,60px);}
+  .work .no{font-family:var(--lat);font-weight:300;font-size:clamp(30px,5vw,64px);line-height:1;opacity:.9;}
+  .work .mid{overflow:hidden;}
+  .work .cat{font-family:var(--lat);font-size:12px;letter-spacing:.26em;text-transform:uppercase;opacity:.82;margin-bottom:14px;display:flex;gap:16px;align-items:center;}
+  .work .cat .yr{opacity:.7;}
+  .work h3{font-family:var(--jp);font-weight:500;font-size:clamp(26px,4.6vw,58px);line-height:1.16;letter-spacing:.01em;
+    transform:translateY(105%);transition:transform .8s var(--ease);}
+  .work.in h3{transform:translateY(0);}
+  .work .go{justify-self:end;align-self:end;display:inline-flex;align-items:center;gap:12px;font-family:var(--lat);font-size:13px;letter-spacing:.16em;text-transform:uppercase;padding:14px 4px;border-bottom:1px solid rgba(244,243,238,.4);transition:border-color .3s,gap .3s;white-space:nowrap;}
+  .work .go:hover{border-color:#f4f3ee;gap:20px;}
+  .work .go svg{width:16px;height:16px;fill:none;stroke:currentColor;stroke-width:1.5;}
+
+  /* gradient placeholders */
+  .g1{background-image:linear-gradient(135deg,#e7b563,#c26b3e,#7a3b2e);}
+  .g2{background-image:linear-gradient(135deg,#4b5d52,#26332c,#88a08c);}
+  .g3{background-image:linear-gradient(135deg,#5b4a7a,#2c3350,#b98b57);}
+  .g4{background-image:linear-gradient(135deg,#a7b7c9,#5b6a80,#2f3947);}
+  .g5{background-image:linear-gradient(135deg,#c96f86,#6d2f45,#2a1a28);}
+  .g6{background-image:linear-gradient(135deg,#7f9c86,#3f5a48,#d9c9a3);}
+  .g7{background-image:linear-gradient(135deg,#8a5c9e,#3a2f5a,#c56b6b);}
+  .g8{background-image:linear-gradient(135deg,#4f8fae,#22506e,#0f2a3c);}
+  .g9{background-image:linear-gradient(135deg,#5eae82,#2a6d52,#173d33);}
+  .g10{background-image:linear-gradient(135deg,#d08a6a,#9a4e3e,#4a2320);}
+  .g11{background-image:linear-gradient(135deg,#6ba0a2,#2f5c67,#241a3a);}
+  .g12{background-image:linear-gradient(135deg,#8a94a6,#565f74,#b8a7c6);}
+  .g13{background-image:linear-gradient(135deg,#c67a4a,#7a2f3f,#2a1526);}
+  .g14{background-image:linear-gradient(135deg,#6fb0a8,#3a6a72,#4a4a6a);}
+
+  /* ---------- About ---------- */
+  .about{padding:clamp(70px,12vh,150px) 0;}
+  .about-grid{display:grid;grid-template-columns:1fr;gap:clamp(40px,7vw,90px);}
+  @media(min-width:900px){.about-grid{grid-template-columns:0.9fr 1.1fr;}}
+  .about .lead{font-family:var(--lat);font-weight:300;font-size:clamp(24px,3.4vw,42px);line-height:1.32;letter-spacing:-.01em;}
+  .about .lead .jpl{font-family:var(--jp);font-weight:400;}
+  .about .body p{font-size:16px;color:#39383400;color:#3a3934;line-height:1.85;margin-bottom:20px;max-width:56ch;}
+  .about .body p b{font-weight:500;color:var(--ink);}
+  .disc{margin-top:44px;border-top:1px solid var(--line);}
+  .disc .row{display:flex;justify-content:space-between;align-items:center;gap:20px;padding:16px 2px;border-bottom:1px solid var(--line);transition:padding .3s var(--ease),color .3s;}
+  .disc .row:hover{padding-left:14px;}
+  .disc .row .n{font-family:var(--lat);font-size:12px;color:var(--ink-2);letter-spacing:.1em;width:34px;flex:none;}
+  .disc .row .t{font-family:var(--jp);font-weight:500;font-size:clamp(16px,2vw,20px);flex:1;}
+  .disc .row .en{font-family:var(--lat);font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--ink-2);}
+
+  /* ---------- Contact ---------- */
+  .contact{background:var(--ink);color:var(--paper);padding:clamp(80px,15vh,180px) 0 0;}
+  .contact .eyebrow{color:#8a8882;}
+  .contact .big{font-family:var(--lat);font-weight:300;font-size:clamp(40px,9vw,140px);line-height:.98;letter-spacing:-.02em;margin:24px 0 40px;}
+  .contact .mail{display:inline-flex;align-items:center;gap:18px;font-family:var(--lat);font-size:clamp(18px,3vw,34px);font-weight:400;border-bottom:1px solid #3a3934;padding-bottom:14px;transition:border-color .4s,gap .4s;}
+  .contact .mail{transition:border-color .4s,gap .4s,transform .4s var(--ease);}
+  .contact .mail:hover{border-color:var(--paper);gap:28px;}
+  .contact .mail svg{width:26px;height:26px;fill:none;stroke:currentColor;stroke-width:1.4;}
+  .contact-foot{display:flex;flex-wrap:wrap;gap:34px;justify-content:space-between;align-items:flex-end;margin-top:clamp(70px,12vh,150px);padding:34px 0;border-top:1px solid #2c2b28;}
+  .contact-foot .soc{display:flex;gap:26px;}
+  .contact-foot .soc a{font-family:var(--lat);font-size:13px;letter-spacing:.12em;color:#cfcdc6;transition:color .25s;}
+  .contact-foot .soc a:hover{color:#fff;}
+  .contact-foot .meta{font-family:var(--lat);font-size:12px;letter-spacing:.08em;color:#7a7873;}
+  .contact-foot .meta a:hover{color:#fff;}
+  .totop{font-family:var(--lat);font-size:12px;letter-spacing:.16em;text-transform:uppercase;color:#cfcdc6;display:inline-flex;align-items:center;gap:8px;transition:transform .4s var(--ease),color .25s;}
+  .totop:hover{color:#fff;}
+
+  /* ---------- Cursor (invert + expand + contextual label + magnetic) ---------- */
+  .c-dot,.c-ring,.c-label{position:fixed;top:0;left:0;pointer-events:none;z-index:2147483000;will-change:transform;}
+  .c-dot,.c-ring{border-radius:50%;mix-blend-mode:difference;opacity:0;}   /* difference = the inversion accent */
+  html.stalker-on .c-dot,html.stalker-on .c-ring{opacity:1;}
+  .c-dot{width:7px;height:7px;margin:-3.5px 0 0 -3.5px;background:#fff;transition:opacity .3s;}
+  .c-ring{width:42px;height:42px;margin:-21px 0 0 -21px;border:1px solid #fff;transition:width .4s var(--ease),height .4s var(--ease),margin .4s var(--ease),opacity .3s;}
+  .c-ring.hover{width:78px;height:78px;margin:-39px 0 0 -39px;}   /* link hover = grows */
+  .c-ring.down{width:30px;height:30px;margin:-15px 0 0 -15px;}    /* click = shrinks */
+  .c-dot.hide,.c-ring.hide{opacity:0;}
+  /* contextual label disc — accent colour, pops in over projects / mail */
+  .c-label span{position:absolute;left:0;top:0;display:grid;place-items:center;width:104px;height:104px;margin:-52px 0 0 -52px;border-radius:50%;
+    background:var(--accent);color:var(--paper);font-family:var(--lat);font-size:12px;font-weight:600;letter-spacing:.16em;text-transform:uppercase;
+    opacity:0;transform:scale(.2);transition:opacity .35s var(--ease),transform .5s var(--ease);}
+  html.stalker-on .c-label.show span{opacity:1;transform:scale(1);}
+  /* magnetic targets ease back to place when released */
+  .mag{transition:transform .4s var(--ease);}
+
+  @keyframes flow{0%{background-position:0% 50%;}50%{background-position:100% 50%;}100%{background-position:0% 50%;}}
+  @keyframes pulse{0%{box-shadow:0 0 0 0 rgba(63,174,107,.5);}70%{box-shadow:0 0 0 8px rgba(63,174,107,0);}100%{box-shadow:0 0 0 0 rgba(63,174,107,0);}}
+  @keyframes sweep{0%{transform:translateX(-100%);}60%,100%{transform:translateX(100%);}}
+  @media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important;}.rv{opacity:1;transform:none;}.work h3{transform:none;}}
+
+  @media(max-width:900px){
+    .sec-head{flex-wrap:wrap;gap:8px;}
+  }
+  @media(max-width:760px){
+    header{height:64px;}
+    .hero .top-row{flex-wrap:wrap;gap:10px;}
+    .hero .loc{text-align:left;}
+    .hero-sub{flex-direction:column;align-items:flex-start;gap:18px;}
+    .hero .scroll-tag{display:none;}
+    .work{align-items:flex-end;}
+    .work .inner{padding-bottom:clamp(40px,7vh,70px);}
+    .work .inner .wrap{grid-template-columns:1fr;gap:14px;}
+    .work .no{font-size:30px;}
+    .work h3{transform:none;}                 /* avoid clipped titles on small screens */
+    .work .go{justify-self:start;margin-top:4px;}
+    .about-grid{gap:36px;}
+    .disc .row:hover{padding-left:6px;}
+  }
+  @media(max-width:480px){
+    :root{--nav-h:60px;}
+    .wrap{padding:0 20px;}
+    .brand{font-size:12.5px;letter-spacing:.06em;gap:8px;}
+    .brand .mark{width:7px;height:7px;}
+    .menu-btn .mtxt{display:none;}            /* keep only the bars icon */
+    .hero-name h1{font-size:clamp(40px,15.5vw,62px);}
+    .hero-sub .intro{font-size:14px;}
+    .overlay{padding-top:80px;}
+    .overlay-nav a{gap:14px;}
+    .overlay-nav a .num{width:26px;font-size:12px;}
+    .overlay-foot{gap:20px 30px;}
+    .disc .row .en{display:none;}             /* declutter on narrow screens */
+    .contact .mail{font-size:16px;gap:12px;word-break:break-all;}
+    .contact-foot{gap:18px;}
+    .contact-foot .soc{gap:14px;flex-wrap:wrap;}
+  }
+</style>
+</head>
+<body id="top">
+
+<!-- ===== Header ===== -->
+<header>
+  <div class="wrap">
+    <a href="#top" class="brand" data-scroll><span class="mark"></span>SAKURAKO SUGIMOTO</a>
+    <button class="menu-btn" id="menuBtn" aria-label="メニュー" aria-expanded="false">
+      <span class="mtxt">Menu</span><span class="bars"><span></span><span></span></span>
+    </button>
+  </div>
+</header>
+
+<!-- ===== Overlay menu ===== -->
+<nav class="overlay" id="overlay" aria-hidden="true">
+  <div class="wrap">
+    <div class="overlay-nav">
+      <a href="#top" data-scroll><span class="num">01</span><span class="lbl">Index</span><span class="jp">トップ</span></a>
+      <a href="#works" data-scroll><span class="num">02</span><span class="lbl">Works</span><span class="jp">作品</span></a>
+      <a href="#about" data-scroll><span class="num">03</span><span class="lbl">About</span><span class="jp">プロフィール</span></a>
+      <a href="#contact" data-scroll><span class="num">04</span><span class="lbl">Contact</span><span class="jp">お問い合わせ</span></a>
+    </div>
+    <div class="overlay-foot">
+      <div class="col"><span>Get in touch</span><a href="mailto:hello@sakurako-sugimoto.studio">hello@sakurako-sugimoto.studio</a></div>
+      <div class="col"><span>Based in</span><p>Tokyo, Japan</p></div>
+      <div class="col"><span>Social</span>
+        <div class="osoc"><a href="#">Instagram</a><a href="#">X</a><a href="#">Behance</a><a href="#">Note</a></div>
+      </div>
+    </div>
+  </div>
+</nav>
+
+<!-- ===== Hero ===== -->
+<section class="hero">
+  <div class="wrap" style="display:flex;flex-direction:column;flex:1;">
+    <div class="top-row rv">
+      <div class="avail"><span class="dot"></span>Available for projects — 2026</div>
+      <div class="loc">Graphic Designer<br>&amp; Art Director</div>
+    </div>
+
+    <div class="hero-name">
+      <h1 class="rv d1">Sakurako<span class="r2"><em>Sugimoto</em></span></h1>
+    </div>
+
+    <div class="hero-sub rv d2">
+      <div class="role">杉本 桜子 <b>— Designer / Art Director</b></div>
+      <p class="intro">ブランドの核にある物語を、印刷物からデジタルまで一貫したかたちに。ロゴ・エディトリアル・パッケージを中心に、静けさと遊び心のあるデザインを届けます。</p>
+    </div>
+
+    <div class="scroll-tag rv d3"><span class="ln"></span>Scroll to explore</div>
+  </div>
+</section>
+
+<!-- ===== Works ===== -->
+<div class="wrap" id="works">
+  <div class="sec-head">
+    <h2 class="rv">Selected Works</h2>
+    <div class="count rv d1">14 Projects — 2018 / 2026</div>
+  </div>
+</div>
+
+<main class="works">
+
+  <section class="work"><div class="media g1"></div><div class="inner"><div class="wrap">
+    <div class="no">01</div>
+    <div class="mid"><div class="cat">Picture Book <span class="yr">2026</span></div><h3>絵本「ゆめのタネ」<br>装丁・作画</h3></div>
+    <a class="go" href="#">View project <svg viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+  </div></div></section>
+
+  <section class="work"><div class="media g2"></div><div class="inner"><div class="wrap">
+    <div class="no">02</div>
+    <div class="mid"><div class="cat">Brand Identity <span class="yr">2025</span></div><h3>AOI COFFEE ROASTERS</h3></div>
+    <a class="go" href="#">View project <svg viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+  </div></div></section>
+
+  <section class="work"><div class="media g3"></div><div class="inner"><div class="wrap">
+    <div class="no">03</div>
+    <div class="mid"><div class="cat">Art Direction <span class="yr">2024</span></div><h3>LUNARIA / Nightbloom</h3></div>
+    <a class="go" href="#">View project <svg viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+  </div></div></section>
+
+  <section class="work"><div class="media g4"></div><div class="inner"><div class="wrap">
+    <div class="no">04</div>
+    <div class="mid"><div class="cat">Poster Series <span class="yr">2024</span></div><h3>巡 -MEGURU- 展</h3></div>
+    <a class="go" href="#">View project <svg viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+  </div></div></section>
+
+  <section class="work"><div class="media g5"></div><div class="inner"><div class="wrap">
+    <div class="no">05</div>
+    <div class="mid"><div class="cat">Editorial <span class="yr">2023</span></div><h3>季刊誌「アオゾラ」<br>リニューアル</h3></div>
+    <a class="go" href="#">View project <svg viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+  </div></div></section>
+
+  <section class="work"><div class="media g6"></div><div class="inner"><div class="wrap">
+    <div class="no">06</div>
+    <div class="mid"><div class="cat">Package Design <span class="yr">2023</span></div><h3>花枝茶 -hanae- 茶葉パッケージ</h3></div>
+    <a class="go" href="#">View project <svg viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+  </div></div></section>
+
+  <section class="work"><div class="media g7"></div><div class="inner"><div class="wrap">
+    <div class="no">07</div>
+    <div class="mid"><div class="cat">Title Design <span class="yr">2023</span></div><h3>劇団ヨナ<br>公演ビジュアル</h3></div>
+    <a class="go" href="#">View project <svg viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+  </div></div></section>
+
+  <section class="work"><div class="media g8"></div><div class="inner"><div class="wrap">
+    <div class="no">08</div>
+    <div class="mid"><div class="cat">Logo &amp; VI <span class="yr">2022</span></div><h3>Studio Kanata</h3></div>
+    <a class="go" href="#">View project <svg viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+  </div></div></section>
+
+  <section class="work"><div class="media g9"></div><div class="inner"><div class="wrap">
+    <div class="no">09</div>
+    <div class="mid"><div class="cat">Illustration <span class="yr">2022</span></div><h3>連作「都市の余白」</h3></div>
+    <a class="go" href="#">View project <svg viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+  </div></div></section>
+
+  <section class="work"><div class="media g10"></div><div class="inner"><div class="wrap">
+    <div class="no">10</div>
+    <div class="mid"><div class="cat">Web Design <span class="yr">2021</span></div><h3>MIRAI RECORDS<br>サイトリニューアル</h3></div>
+    <a class="go" href="#">View project <svg viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+  </div></div></section>
+
+  <section class="work"><div class="media g11"></div><div class="inner"><div class="wrap">
+    <div class="no">11</div>
+    <div class="mid"><div class="cat">Exhibition <span class="yr">2020</span></div><h3>「ひかりの実験」<br>会場グラフィック</h3></div>
+    <a class="go" href="#">View project <svg viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+  </div></div></section>
+
+  <section class="work"><div class="media g12"></div><div class="inner"><div class="wrap">
+    <div class="no">12</div>
+    <div class="mid"><div class="cat">Motion Graphics <span class="yr">2020</span></div><h3>PIXEL ID</h3></div>
+    <a class="go" href="#">View project <svg viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+  </div></div></section>
+
+  <section class="work"><div class="media g13"></div><div class="inner"><div class="wrap">
+    <div class="no">13</div>
+    <div class="mid"><div class="cat">Character Design <span class="yr">2019</span></div><h3>「ナノとクモ」</h3></div>
+    <a class="go" href="#">View project <svg viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+  </div></div></section>
+
+  <section class="work"><div class="media g14"></div><div class="inner"><div class="wrap">
+    <div class="no">14</div>
+    <div class="mid"><div class="cat">Zine <span class="yr">2018</span></div><h3>自主制作 zine「STILL」</h3></div>
+    <a class="go" href="#">View project <svg viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+  </div></div></section>
+
+</main>
+
+<!-- ===== About ===== -->
+<section class="about" id="about">
+  <div class="wrap">
+    <div class="sec-head" style="border-top:none;padding-top:0;">
+      <div class="eyebrow rv"><span class="idx">03</span> &nbsp;— About</div>
+    </div>
+    <div class="about-grid">
+      <div>
+        <p class="lead rv">Design with quiet<br>intention. <span class="jpl">静けさの<br>あるデザインを。</span></p>
+      </div>
+      <div class="body">
+        <p class="rv d1">杉本桜子は、東京を拠点に活動する<b>グラフィックデザイナー / アートディレクター</b>です。ブランドアイデンティティ、エディトリアル、パッケージを軸に、コンセプトの設計から仕上げまでを一貫して手がけます。</p>
+        <p class="rv d2">「情報を整理し、余白で語る」ことを大切にしながら、手描きの温度とタイポグラフィの精度を両立させたデザインを追求しています。紙とスクリーン、その両方で機能する表現を。</p>
+        <div class="disc">
+          <div class="row rv"><span class="n">01</span><span class="t">ブランドアイデンティティ</span><span class="en">Brand Identity</span></div>
+          <div class="row rv"><span class="n">02</span><span class="t">エディトリアル / 装丁</span><span class="en">Editorial</span></div>
+          <div class="row rv"><span class="n">03</span><span class="t">パッケージデザイン</span><span class="en">Packaging</span></div>
+          <div class="row rv"><span class="n">04</span><span class="t">アートディレクション</span><span class="en">Art Direction</span></div>
+          <div class="row rv"><span class="n">05</span><span class="t">イラストレーション</span><span class="en">Illustration</span></div>
+          <div class="row rv"><span class="n">06</span><span class="t">ウェブ / デジタル</span><span class="en">Web &amp; Digital</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== Contact ===== -->
+<section class="contact" id="contact">
+  <div class="wrap">
+    <div class="eyebrow"><span class="idx">04</span> &nbsp;— Contact</div>
+    <div class="big">Let's make<br>something.</div>
+    <a class="mail" href="mailto:hello@sakurako-sugimoto.studio">
+      <svg viewBox="0 0 24 24"><path d="M4 5h16v14H4zM4 6l8 6 8-6"/></svg>
+      hello@sakurako-sugimoto.studio
+    </a>
+    <div class="contact-foot">
+      <div class="soc">
+        <a href="#">Instagram</a><a href="#">X / Twitter</a><a href="#">Behance</a><a href="#">Note</a>
+      </div>
+      <a href="#top" class="totop" data-scroll>Back to top ↑</a>
+      <div class="meta">© 2026 Sakurako Sugimoto &nbsp;·&nbsp; <a href="#">Privacy</a></div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== Cursor ===== -->
+<div class="c-ring" aria-hidden="true"></div>
+<div class="c-dot" aria-hidden="true"></div>
+<div class="c-label" aria-hidden="true"><span></span></div>
+
+<script>
+  const body = document.body;
+
+  /* ---- Menu ---- */
+  const menuBtn = document.getElementById('menuBtn');
+  const overlay = document.getElementById('overlay');
+  const setMenu = (open) => {
+    body.classList.toggle('menu-open', open);
+    menuBtn.setAttribute('aria-expanded', open ? 'true' : 'false');
+    overlay.setAttribute('aria-hidden', open ? 'false' : 'true');
+    menuBtn.querySelector('.mtxt').textContent = open ? 'Close' : 'Menu';
+  };
+  menuBtn.addEventListener('click', () => setMenu(!body.classList.contains('menu-open')));
+  document.querySelectorAll('[data-scroll]').forEach(a => a.addEventListener('click', () => setMenu(false)));
+  document.addEventListener('keydown', (e) => { if(e.key === 'Escape') setMenu(false); });
+
+  /* ---- Scroll reveals ---- */
+  const rvIO = new IntersectionObserver((es) => {
+    es.forEach(e => { if(e.isIntersecting){ e.target.classList.add('in'); rvIO.unobserve(e.target); } });
+  }, { threshold: 0.18, rootMargin: '0px 0px -6% 0px' });
+  document.querySelectorAll('.rv').forEach(el => rvIO.observe(el));
+
+  /* ---- Work panels (media zoom + title reveal, retrigger on re-enter) ---- */
+  const workIO = new IntersectionObserver((es) => {
+    es.forEach(e => e.target.classList.toggle('in', e.isIntersecting));
+  }, { threshold: 0.35 });
+  document.querySelectorAll('.work').forEach(w => workIO.observe(w));
+
+  /* ---- Signature cursor: inverting dot + trailing ring, that swaps to an
+          accent "label" disc over projects/mail, plus magnetic key buttons ---- */
+  (function(){
+    const fine = window.matchMedia('(hover:hover) and (pointer:fine)').matches;
+    if(!fine) return;
+    document.documentElement.classList.add('stalker-on');
+    const dot   = document.querySelector('.c-dot');
+    const ring  = document.querySelector('.c-ring');
+    const label = document.querySelector('.c-label');
+    const labelTxt = label.querySelector('span');
+    let mx = innerWidth/2, my = innerHeight/2;         // target
+    let dx = mx, dy = my, rx = mx, ry = my;             // dot / ring(+label) positions
+
+    addEventListener('mousemove', (e) => { mx = e.clientX; my = e.clientY; });
+    addEventListener('mousedown', () => ring.classList.add('down'));
+    addEventListener('mouseup',   () => ring.classList.remove('down'));
+
+    const hoverSel = 'a, button, [role="button"], .disc .row';
+    function labelFor(t){
+      if(t.closest('.mail')) return 'Mail';
+      if(t.closest('.go'))   return 'View';
+      return null;
+    }
+    addEventListener('mouseover', (e) => {
+      const lab = labelFor(e.target);
+      if(lab){ labelTxt.textContent = lab; label.classList.add('show'); dot.classList.add('hide'); ring.classList.add('hide'); }
+      else if(e.target.closest(hoverSel)){ ring.classList.add('hover'); }
+    });
+    addEventListener('mouseout', (e) => {
+      if(labelFor(e.target)){ label.classList.remove('show'); dot.classList.remove('hide'); ring.classList.remove('hide'); }
+      if(e.target.closest(hoverSel)){ ring.classList.remove('hover'); }
+    });
+
+    (function loop(){
+      dx += (mx - dx) * 0.55; dy += (my - dy) * 0.55;   // dot: snappy
+      rx += (mx - rx) * 0.16; ry += (my - ry) * 0.16;   // ring + label: trailing
+      dot.style.transform   = 'translate(' + dx + 'px,' + dy + 'px)';
+      ring.style.transform  = 'translate(' + rx + 'px,' + ry + 'px)';
+      label.style.transform = 'translate(' + rx + 'px,' + ry + 'px)';
+      requestAnimationFrame(loop);
+    })();
+
+    /* magnetic pull on key buttons */
+    document.querySelectorAll('.menu-btn, .mail, .totop').forEach(el => {
+      el.classList.add('mag');
+      el.addEventListener('mousemove', (e) => {
+        const r = el.getBoundingClientRect();
+        const x = e.clientX - (r.left + r.width/2);
+        const y = e.clientY - (r.top + r.height/2);
+        el.style.transform = 'translate(' + (x*0.3) + 'px,' + (y*0.45) + 'px)';
+      });
+      el.addEventListener('mouseleave', () => { el.style.transform = ''; });
+    });
+  })();
+</script>
+
+</body>
+</html>
